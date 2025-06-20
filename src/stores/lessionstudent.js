@@ -30,11 +30,13 @@ export const useStudentLessionStore = defineStore("student_lession",{
         console.log(err)
       }
     },
-    async updateStudentLession(lesion_id,score){
+    async updateStudentLession(lesion_id ,student_id,score){
       try{
         const res = await axios.put(`http://localhost:3000/zcode/student_lessons/${lesion_id}`,{
-          score:score
+          student_id : student_id,
+          score : score
         });
+        console.log('update sucess')
       }catch(err){
         console.log(err)
       }

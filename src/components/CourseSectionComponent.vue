@@ -72,7 +72,7 @@ export default {
                 <div  class="course-card">
                     <div  class=" course-card-front rounded-xl p-3 border flex flex-col items-center justify-center border-blue-100">
 
-                        <div  class="course-icon w-17 h-17 bg-green-500 rounded-lg flex items-center justify-center text-white mb-4">
+                        <div  class="course-icon w-17 h-17 bg-green-800 rounded-lg flex items-center justify-center text-white mb-4">
                             <span v-html="item.icon" class="text-2xl text-white"></span>
                         </div>
                         <h3 class=" text-xl font-bold text-gray-800 mb-2"> {{ item.title }}</h3>
@@ -82,23 +82,23 @@ export default {
 
                         <div class="course-stats">
                             <div class="stat-item">
-                                <div class="stat-value text-green-600">{{ item.total_lessons }}</div>
+                                <div class="stat-value text-green-800">{{ item.total_lessons }}</div>
                                 <div class="stat-label">Lessons</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-value text-green-600">{{ item.total_chapters }}</div>
+                                <div class="stat-value text-green-800">{{ item.total_chapters }}</div>
                                 <div class="stat-label">Chapters</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-value text-green-600">{{ item.total_quizzes }}</div>
+                                <div class="stat-value text-green-800">{{ item.total_quizzes }}</div>
                                 <div class="stat-label">Quizzes</div>
                             </div>
                         </div>
                         <div class="progress-bar bg-gray-200 rounded-full h-2 mb-4">
-                            <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                            <div class="bg-green-800 h-2 rounded-full" style="width: 75%"></div>
                         </div>
                         <p class="text-sm text-gray-600 mb-4">Average completion time: 2 weeks</p>
-                        <button class="px-6 py-2 bg-green-500 text-white rounded-lg font-medium hover:bg-green-600 transition w-full" @click="handleCourse(item.id,item.title)" >Start Learning</button>
+                        <button class="px-6 py-2 bg-green-800 text-white rounded-lg font-medium hover:bg-green-600 transition w-full" @click="handleCourse(item.id,item.title)" >Start Learning</button>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@ export default {
   <button
     v-if="visibleCount < courseStore.items.length"
     @click="visibleCount += 4"
-    class="px-8 py-3 bg-gradient-to-r from-green-500 to-green-500 text-white rounded-full font-bold hover:opacity-90 transition shadow-lg animate-pulse"
+    class="px-8 py-3 bg-gradient-to-r from-green-800 to-green-700 text-white rounded-full font-bold hover:opacity-90 transition shadow-lg animate-pulse"
   >
     View All Courses <i class="fas fa-arrow-right ml-2 animate-wave"></i>
   </button>

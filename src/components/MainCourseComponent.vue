@@ -11,11 +11,6 @@ export default{
            courseStore: useCourseStore(),
         }
     },
-    watch:{
-         async $route() {
-         setInterval(()=>{window.location.reload},100)
-        }
-    },
     computed:{
         CoureReference(){
             const index = parseInt(this.$route.path.split("/")[4]) - 1;
@@ -29,7 +24,7 @@ export default{
             const chapters = this.CourseDetail.items?.Chapters;
             if (!chapters?.length || this.messageFromSibling == null) return null;
             const question = chapters.flatMap(ch => ch.Lessons).find(l => l.id === this.messageFromSibling)|| null;
-            return `${question.video_url}?autoplay=1&controls=1`
+            return `${question.video_url}`
         },
         CurrentLession(){
             const chapters = this.CourseDetail.items?.Chapters;
@@ -43,6 +38,16 @@ export default{
         }
     },
     watch:{
+        '$route.params.id': {
+      immediate: true,
+      handler(newVal) {
+        this.fetchData(newVal);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+      }
+      },
         messageFromSibling(newval){
               console.log('Child B got new data:', newval);
         }
@@ -52,13 +57,15 @@ export default{
       messageFromSibling: [String, Number],
      
     },
-    async mounted(){
-        const courseId = this.$route.path.split("/")[4];
-        await this.CourseDetail.fetechItem(courseId);
-        await this.courseStore.fetchItems();
-         // Make sure this returns a promise
+    mounted(){
+        const courseId = this.$route.params.id;
+        this.fetchData(courseId)
     },
     methods:{
+        async fetchData(courseId){
+        await this.CourseDetail.fetechItem(courseId);
+        await this.courseStore.fetchItems();
+        }
         
 
     }

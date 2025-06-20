@@ -98,15 +98,15 @@ export default{
 
 
 <template>
-    <nav class="bg-white shadow-md py-4 px-6 flex items-center justify-between sticky top-0 z-150">
+    <nav class=" bg-gray-100 shadow-md py-4 px-6 flex items-center justify-between sticky top-0 z-150">
         <div class=" flex items-center space-x-8">
             <div class="flex items-center animate-pulse">
             <img class=" w-[100px] h-[50px] " src="https://eandrrnqsieuoqnzyiab.supabase.co/storage/v1/object/public/images//image.png" alt="">
         </div>
          <div class="hidden md:flex space-x-8">
-            <a href="#" @click="handlehome" class="nav-link text-gray-800 hover:text-green-500  font-medium transition"><router-link to="/">Home</router-link></a>
-            <a href="#" @click="handlecours" class="nav-link text-gray-800 hover:text-green-500 font-medium transition">Courses</a>
-            <a href="#" @click="handleabout" class="nav-link text-gray-800 hover:text-green-500  font-medium transition">About Us</a>
+            <a href="#" @click="handlehome" class="nav-link text-gray-800 hover:text-green-800  font-medium transition"><router-link to="/">Home</router-link></a>
+            <a href="#" @click="handlecours" class="nav-link text-gray-800 hover:text-green-800 font-medium transition">Courses</a>
+            <a href="#" @click="handleabout" class="nav-link text-gray-800 hover:text-green-800  font-medium transition">About Us</a>
         </div>
         </div>
         <!-- Profile View  -->
@@ -126,8 +126,8 @@ export default{
             
          </div>
          <div  v-else class="flex  items-center space-x-4"> 
-            <button class="px-4 py-2 text-gray-800 font-medium hover:text-green-500  transition animate-wave"><router-link to="/login">login</router-link></button>
-            <button class="px-6 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full font-medium hover:opacity-90 transition shadow-lg animate-bounce"><router-link to="/register">Sign Up</router-link></button>
+            <button class="px-4 py-2 text-gray-800 font-medium hover:text-green-700  transition animate-wave"><router-link to="/login">login</router-link></button>
+            <button class="px-6 py-2 bg-gradient-to-r from-green-800 to-green-700 text-white rounded-full font-medium hover:opacity-90 transition shadow-lg animate-bounce"><router-link to="/register">Sign Up</router-link></button>
         </div>
        
     </nav>
@@ -144,7 +144,7 @@ export default{
   --bg-color-sup: #5e5e5e;
   --bg-color: #2b2b2b;
   --bg-hover-color: #27b35a;
-  --online-status: #00da00;
+  --online-status: #0a814b;
   --font-size: 16px;
   --btn-transition: all 0.2s ease-out;
 }

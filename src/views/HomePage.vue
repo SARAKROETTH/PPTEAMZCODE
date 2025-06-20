@@ -42,8 +42,8 @@ export default {
 
 
 <template>
-    <NavBarComponent @sendToMainSection="handleEmit" />
-    <MainSectionComponent :studentId="studentId"/>
+    <NavBarComponent />
+    <MainSectionComponent />
     <CourseSectionComponent/>
     <FooterSectionComponent/>
 </template>

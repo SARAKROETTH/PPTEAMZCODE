@@ -2,7 +2,6 @@
 import ListCourseSectionComponent from '../components/ListCourseSectionComponent.vue';
 import MainCourseComponent from '../components/MainCourseComponent.vue';
 import { useCourseDetailStore } from '../stores/coursedetail';
-import { provide, reactive } from 'vue';
 
 export default{
     name:"CourseDetailPage",
@@ -11,9 +10,12 @@ export default{
         MainCourseComponent
     },
     watch:{
-        $router(){
-             this.uesCourse.fetctData(this.$route.path.split("/")[4]);
-        }
+        '$route.params.id': {
+      immediate: true,
+      handler(newVal) {
+        this.uesCourse?.fetechItem(newVal);
+      }
+      },
     },
     data(){
         return{
@@ -25,6 +27,9 @@ export default{
         this.uesCourse.fetechItem(this.$route.path.split("/")[4]);
     },
     methods:{
+    fetcchDate(){
+
+    },
     handleFromChildA(payload) {
       this.messageToB = payload;
     }

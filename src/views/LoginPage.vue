@@ -4,8 +4,6 @@ import axios from 'axios';
 import { reactive,toRaw } from 'vue';
 import { useUserStore } from '../stores/userStore';
 
-
-
 export default{
     name: "LoginPage",
     components:{
@@ -57,10 +55,9 @@ export default{
     this.getPharam(newPath);
 }
     },
-    mounted() {
-        
-    this.pharam = this.$route.path;
-    this.getPharam(this.pharam);
+     mounted() {
+             this.pharam = this.$route.path;
+              this.getPharam(this.pharam);
              },
     computed:{
         loginTabClass(){
@@ -117,9 +114,7 @@ export default{
         async handleLogin() {
             
          try {
-                const res = await axios.post(
-            'http://localhost:3000/zcode/login',
-            this.loginValue,
+                const res = await axios.post('http://localhost:3000/zcode/login',this.loginValue,
             { 
                 headers: {
                     'Content-Type': 'application/json'
@@ -130,7 +125,7 @@ export default{
             }
         );
         this.userStorge.isAuthenticated = true;
-        this.NewNavagetor(`/1`);
+        this.NewNavagetor(`/`);
         } catch (error) {
             this.changeTriggerStatus("Login failed","isred",true)
         alert('Login failed: ' + (error.response?.data?.error || error.message));

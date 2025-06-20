@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4 py-12 max-w-4xl">
       <div class="text-center mb-12 fade-in">
         <h1 class="text-4xl font-bold text-indigo-800 mb-2">Knowledge Check</h1>
-        <p class="text-lg text-gray-600">Test your understanding of the lesson material</p>
+        <p class="text-lg text-gray-600">Test your understanding of the lesson material </p>
         <div class="w-full bg-gray-200 rounded-full h-4 mt-6">
           <div id="progress-bar" class="progress-bar bg-green-600 h-4 rounded-full" :style="{ width: progressBarWidth }"></div>
         </div>
@@ -304,13 +304,14 @@ export default {
       const Lession_id = this.$route.path.split('=')[1].split('/')[0];
 
       const quizeExiting = this.recordStudent.items.find(items =>{
-        return items.lesson_id === parseInt(Lession_id) && items.student_id ===  parseInt(this.StudentDate?.items?.user.id)
+        return items.lesson_id === parseInt(Lession_id) && items.student_id ===  parseInt(this.StudentDate?.items?.user.id);
       })
+
       if(quizeExiting){
-       await this.recordStudent.updateStudentLession(Lession_id ,this.score);
+       this.recordStudent.updateStudentLession(Lession_id , this.StudentDate?.items?.user.id,this.score);
+       console.log("update scussfuly")
         return;
       }
-
       await this.recordStudent.createStudentLession(this.StudentDate?.items?.user.id,parseInt(Lession_id),parseInt(QuizId),this.score,1)
 
 
@@ -323,7 +324,6 @@ export default {
      await this.quizFecth.fetchItem(this.$route.path.split('/')[3]);
      await this.StudentDate.fetchItems();
      await this.recordStudent.fetchStudentLession();
-     console.log(this.recordStudent.items)
   }
 };
 </script>
